@@ -1,25 +1,14 @@
-name: AutoFilm Workflow DEV
-
+name: AutoFilm-Anime-Actions
 on:
   workflow_dispatch:
     inputs:
       branch:
         description: '请选择运行分支'
         required: true
-        default: 'Dev'
-      config:
-        description: '请输入config文件地址'
-        required: true
-        default: 'config/'
-      ssh:
-        description: '是否进行SSH连接'
-        required: true
-        default: 'false'
-      
-
+        default: 'Dev'      
 
 jobs:
-  AutoFilm:
+  AutoFilm-Anime:
     runs-on: ubuntu-latest
     steps:
     - name: 下载仓库
@@ -39,12 +28,7 @@ jobs:
 
     - name: 运行AutoFilm-actions程序
       run: |
-        python autofilm-actions.py --path ${{ github.event.inputs.config }}
-        
-    
-    - name: SSH连接到Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true') || contains(github.event.action, 'ssh')
+        python autofilm-actions.py --path config/anime.config
         
     - name: 打包输出文件
       run: |
@@ -54,7 +38,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: Emby扫库文件
-        name: AutoFilm-$(date +%Y-%m-%d)
+        name: AutoFilm-Anime-$(date +%Y-%m-%d)
         body: TODO New Release.
         body_path: Release.md
         draft: false
