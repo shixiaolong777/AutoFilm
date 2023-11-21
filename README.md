@@ -1,6 +1,6 @@
 # AutoFilm-推荐使用jellyfin
 **一个为Emby、Jellyfin服务器提供直链播放的小项目**
-
+利用Nastools或moviepliot对alist挂载的阿里云盘、Onedrive等可以使用302重定向的网盘进行重命名和刮削
 ## 优点
 - [x] 轻量化Emby服务器，降低Emby服务器的性能需求以及硬盘需求
 - [x] 运行稳定
