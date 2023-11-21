@@ -1,4 +1,4 @@
-# AutoFilm
+# AutoFilm-推荐使用jellyfin
 **一个为Emby、Jellyfin服务器提供直链播放的小项目**
 
 ## 优点
