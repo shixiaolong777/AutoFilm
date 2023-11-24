@@ -38,7 +38,7 @@ def list_files(webdav_url, username, password, show_path, depth=None, path='', c
     for item in items[1:]:
         if item[-1] == '/':
             if depth is None or depth > 0:
-                subdirectory, subfiles, count = list_files(webdav_url + item, username, password, depth=None if depth is None else depth - 1, path=path+item, count=count)
+                subdirectory, subfiles, count = list_files(webdav_url + item, username, password, show_path, depth=None if depth is None else depth - 1, path=path+item, count=count)
                 directory += [item + subitem for subitem in subdirectory]
                 files += [item + subitem for subitem in subfiles]
             else:
